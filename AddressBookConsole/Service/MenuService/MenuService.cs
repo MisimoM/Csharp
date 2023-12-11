@@ -1,18 +1,12 @@
 ﻿namespace AddressBookConsole.Service.MenuService
 {
     // Main menu service facilitates user interaction.
-    public class MenuService
+    public class MenuService(
+        ContactDisplayManager contactDisplayManager,
+        ContactRegistrationManager contactRegistrationManager,
+        ContactRemovalManager contactRemovalManager)
     {
-        private readonly OptionManager _optionManager;
-
-        public MenuService(
-            ContactService.ContactService contactService,
-            ContactDisplayManager contactDisplayManager,
-            ContactRegistrationManager contactRegistrationManager,
-            ContactRemovalManager contactRemovalManager)
-        {
-            _optionManager = new OptionManager(contactService, contactDisplayManager, contactRegistrationManager, contactRemovalManager);
-        }
+        private readonly OptionManager _optionManager = new(contactDisplayManager, contactRegistrationManager, contactRemovalManager);
 
         // Displays the main menu and handeles user input.
         public void ShowMainMenu()

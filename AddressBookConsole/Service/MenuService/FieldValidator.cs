@@ -13,7 +13,7 @@ namespace AddressBookConsole.Service.MenuService
         public static bool IsValidEmail(string email)
         {
             string emailPattern = @"^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$";
-            Regex regex = new Regex(emailPattern);
+            Regex regex = new(emailPattern);
 
             return regex.IsMatch(email);
         }

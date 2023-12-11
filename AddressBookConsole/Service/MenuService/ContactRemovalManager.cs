@@ -10,7 +10,7 @@
         public void RemoveContact()
         {
             Console.Write("Enter the email of the contact to remove: ");
-            string emailToRemove = Console.ReadLine();
+            string emailToRemove = Console.ReadLine() ?? "";
 
             if (_contactService.RemoveContact(emailToRemove))
             {

@@ -2,15 +2,11 @@
 
 namespace AddressBookConsole.Service.MenuService
 {
-    public class ContactRegistrationManager
+    public class ContactRegistrationManager(ContactService.ContactService contactService, InputValidator inputValidator)
     {
-        private readonly ContactService.ContactService _contactService;
-        private readonly InputValidator _inputValidator;
-        public ContactRegistrationManager(ContactService.ContactService contactService, InputValidator inputValidator)
-        {
-            _contactService = contactService;
-            _inputValidator = inputValidator;
-        }
+        private readonly ContactService.ContactService _contactService = contactService;
+        private readonly InputValidator _inputValidator = inputValidator;
+
         public void AddContact()
         {
             ContactModel contact = ContactDataCapture.Capture(_inputValidator);

@@ -9,13 +9,14 @@
         {
             _contactService = contactService;
         }
+
         public string GetValidInput(string prompt, string fieldName, bool isEmail = false)
         {
             string input;
             do
             {
                 Console.Write(prompt);
-                input = Console.ReadLine();
+                input = Console.ReadLine() ?? "";
 
                 if (isEmail && !FieldValidator.IsValidEmail(input))
                 {

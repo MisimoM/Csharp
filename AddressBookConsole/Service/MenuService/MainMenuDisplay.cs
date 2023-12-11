@@ -14,7 +14,7 @@
             Console.WriteLine("0. Exit Address Book");
             Console.WriteLine();
             Console.Write("Choose an option: ");
-            return Console.ReadLine();
+            return Console.ReadLine() ?? "";
         }
     }
 }

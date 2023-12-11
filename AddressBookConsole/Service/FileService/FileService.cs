@@ -2,16 +2,10 @@
 
 namespace AddressBookConsole.Service.FileService
 {
-    public class FileService
+    public class FileService(ContactSaver contactSaver, ContactLoader contactLoader)
     {
-        private readonly ContactSaver _contactSaver;
-        private readonly ContactLoader _contactLoader;
-
-        public FileService(ContactSaver contactSaver, ContactLoader contactLoader)
-        {
-            _contactSaver = contactSaver;
-            _contactLoader = contactLoader;
-        }
+        private readonly ContactSaver _contactSaver = contactSaver;
+        private readonly ContactLoader _contactLoader = contactLoader;
 
         public List<ContactModel> LoadContacts()
         {

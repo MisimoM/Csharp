@@ -2,12 +2,14 @@
 
 namespace AddressBookConsole.Service.MenuService
 {
-    // Gets data for a new contact and uses the InputValidator the check it the input is valid.
+    /// <summary>
+    /// Gets data for a new contact and uses the InputValidator the check it the input is valid.
+    /// </summary>
     public class ContactDataCapture
     {
         public static ContactModel Capture(InputValidator inputValidator)
         {
-            ContactModel contact = new ContactModel();
+            ContactModel contact = new();
 
             Console.Clear();
             contact.FirstName = inputValidator.GetValidInput("Enter First Name: ", "first name");

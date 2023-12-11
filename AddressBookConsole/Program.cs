@@ -9,9 +9,9 @@ FileService fileService = new(contactSaver, contactLoader);
 ContactService contactService = new(fileService);
 
 ContactDisplayManager contactDisplayManager = new(contactService);
-InputValidator inputValidator = new InputValidator(contactService);
+InputValidator inputValidator = new(contactService);
 ContactRegistrationManager contactRegistrationManager = new(contactService, inputValidator);
 ContactRemovalManager contactRemovalManager = new(contactService);
 
-MenuService menuService = new(contactService, contactDisplayManager, contactRegistrationManager, contactRemovalManager);
+MenuService menuService = new(contactDisplayManager, contactRegistrationManager, contactRemovalManager);
 menuService.ShowMainMenu();

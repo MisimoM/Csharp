@@ -1,13 +1,8 @@
 ﻿namespace AddressBookConsole.Service.MenuService
 {
-    public class ContactDisplayManager
+    public class ContactDisplayManager(ContactService.ContactService contactService)
     {
-        private readonly ContactService.ContactService _contactService;
-
-        public ContactDisplayManager(ContactService.ContactService contactService)
-        {
-            _contactService = contactService;
-        }
+        private readonly ContactService.ContactService _contactService = contactService;
 
         public void ShowContacts()
         {

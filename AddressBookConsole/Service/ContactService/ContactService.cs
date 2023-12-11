@@ -2,16 +2,10 @@
 
 namespace AddressBookConsole.Service.ContactService
 {
-    public class ContactService
+    public class ContactService(FileService.FileService fileService)
     {
-        private readonly List<ContactModel> contacts;
-        private readonly FileService.FileService _fileService;
-
-        public ContactService(FileService.FileService fileService)
-        {
-            _fileService = fileService;
-            contacts = fileService.LoadContacts();
-        }
+        private readonly List<ContactModel> contacts = fileService.LoadContacts();
+        private readonly FileService.FileService _fileService = fileService;
 
         public List<ContactModel> GetContacts()
         {
@@ -26,7 +20,7 @@ namespace AddressBookConsole.Service.ContactService
 
         public bool RemoveContact(string email)
         {
-            ContactModel contactToRemove = contacts.Find(contact => contact.Email == email);
+            ContactModel contactToRemove = contacts.Find(contact => contact.Email == email)!;
 
             if (contactToRemove != null)
             {
@@ -40,7 +34,7 @@ namespace AddressBookConsole.Service.ContactService
 
         public bool EmailExists(string email)
         {
-            return contacts.Any(contact => contact.Email.ToLower() == email.ToLower());
+            return contacts.Any(contact => contact.Email.Equals(email, StringComparison.CurrentCultureIgnoreCase));
         }
     }
 }
