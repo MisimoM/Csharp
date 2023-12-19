@@ -1,11 +1,12 @@
-﻿using AddressBookConsole.Model;
+﻿using AddressBookMaui.Model;
 using Newtonsoft.Json;
 
-namespace AddressBookConsole.Service.FileService
+namespace AddressBookMaui.Service.FileService
 {
     /// <summary>
     /// Loads contacts from a file.
     /// </summary>
+    /// <param name="filePath"></param>
     public class ContactLoader(string filePath)
     {
         private readonly string _filePath = filePath;
