@@ -20,6 +20,8 @@ namespace AddressBookMaui.ViewModel
             {
                 var contacts = _contactService.GetContacts();
 
+                Contacts.Clear();
+
                 foreach (var contact in contacts)
                     Contacts.Add(contact);
             }

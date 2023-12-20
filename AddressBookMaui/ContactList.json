@@ -1,20 +1,12 @@
 [
   {
-    "FirstName": "Marko",
-    "LastName": "Misimovic",
-    "PhoneNumber": "070123456",
-    "Email": "marko@email.com",
-    "StreetName": "MarkoGatan 1",
-    "PostalCode": "304444",
-    "City": "Halmstad"
-  },
-  {
-    "FirstName": "asdsad",
-    "LastName": "asdasd",
-    "PhoneNumber": "asdsad",
-    "Email": "sad",
-    "StreetName": "dasdsad",
-    "PostalCode": "dasdsa",
-    "City": "asdass"
+    "Id": "5b6d24ca-b05d-42d3-8b05-a65cc5d7b12f",
+    "FirstName": "asdasd",
+    "LastName": "asdasda",
+    "PhoneNumber": "asdsa",
+    "Email": "asd",
+    "StreetName": "dsadsad",
+    "PostalCode": "asdasd",
+    "City": "asdasd"
   }
 ]

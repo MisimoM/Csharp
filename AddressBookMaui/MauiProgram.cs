@@ -31,6 +31,9 @@ namespace AddressBookMaui
             builder.Services.AddTransient<DetailsPage>();
             builder.Services.AddTransient<DetailsViewModel>();
 
+            builder.Services.AddTransient<EditContactPage>();
+            builder.Services.AddTransient<EditContactViewModel>();
+
 #if DEBUG
             builder.Logging.AddDebug();
 #endif

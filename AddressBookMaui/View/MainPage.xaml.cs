@@ -13,19 +13,22 @@ public partial class MainPage : ContentPage
 
     }
 
-    private async void AddContactPage(object sender, EventArgs e)
+    private async void GoToAddContactPage(object sender, EventArgs e)
     {
         await Shell.Current.GoToAsync(nameof(AddContactPage));
     }
 
-    private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
+    private async void GoToDetailsPage(object sender, EventArgs e)
     {
-        if (((VisualElement)sender).BindingContext is ContactModel contact)
-        {
-            await Shell.Current.GoToAsync(nameof(DetailsPage), true, new Dictionary<string, object>
+        if (((VisualElement)sender).BindingContext is not ContactModel contact)
+            return;
+
+        await Shell.Current.GoToAsync($"{nameof(DetailsPage)}", true,
+            new Dictionary<string, object>
             {
-                {"Contact", contact}
+                {"Contact", contact }
             });
-        }
     }
+
+
 }
