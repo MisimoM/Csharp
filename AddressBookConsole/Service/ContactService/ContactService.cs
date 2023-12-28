@@ -1,11 +1,16 @@
-﻿using AddressBookConsole.Model;
+﻿using AddressBookConsole.Interface;
+using AddressBookConsole.Model;
 
 namespace AddressBookConsole.Service.ContactService
 {
-    public class ContactService(FileService.FileService fileService)
+    /// <summary>
+    /// Service for managing contacts.
+    /// </summary>
+    /// <param name="fileService"></param>
+    public class ContactService(IFileService fileService)
     {
         private readonly List<ContactModel> contacts = fileService.LoadContacts();
-        private readonly FileService.FileService _fileService = fileService;
+        private readonly IFileService _fileService = fileService;
 
         public List<ContactModel> GetContacts()
         {

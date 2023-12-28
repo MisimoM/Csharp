@@ -15,17 +15,21 @@ namespace AddressBookMaui.ViewModel
         public EditContactViewModel(ContactService contactService)
         {
             _contactService = contactService;
-            Contact = null!;
+            Contact = _contactService.GetContactById(ContactId);
         }
 
         [ObservableProperty]
         ContactModel _contact;
 
+        [ObservableProperty]
+        private Guid _contactId;
+
         [RelayCommand]
         private async Task SaveEditedContact()
         {
+            _contactService.EditContact();
             WeakReferenceMessenger.Default.Send(new UpdatedListMessage("Contacts Updated"));
-            await Shell.Current.GoToAsync("..");
+            await Shell.Current.GoToAsync("../..");
         }
     }
 }

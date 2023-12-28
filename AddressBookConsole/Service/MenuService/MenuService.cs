@@ -1,6 +1,11 @@
 ﻿namespace AddressBookConsole.Service.MenuService
 {
-    // Main menu service facilitates user interaction.
+    /// <summary>
+    /// Service responsible for managing the main menu.
+    /// </summary>
+    /// <param name="contactDisplayManager"></param>
+    /// <param name="contactRegistrationManager"></param>
+    /// <param name="contactRemovalManager"></param>
     public class MenuService(
         ContactDisplayManager contactDisplayManager,
         ContactRegistrationManager contactRegistrationManager,
@@ -8,15 +13,14 @@
     {
         private readonly OptionManager _optionManager = new(contactDisplayManager, contactRegistrationManager, contactRemovalManager);
 
-        // Displays the main menu and handeles user input.
         public void ShowMainMenu()
         {
             while (true)
             {
-                // Gets the user's option
+                //Gets the option from the user.
                 string option = MainMenuDisplay.GetOption();
 
-                // Handles the user's option using the option manager.
+                //Handles the option from the user.
                 _optionManager.HandleOption(option);
 
                 Console.ReadKey();

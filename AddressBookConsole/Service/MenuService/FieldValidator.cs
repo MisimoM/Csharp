@@ -2,9 +2,11 @@
 
 namespace AddressBookConsole.Service.MenuService
 {
+    /// <summary>
+    /// Utility class for validating various fields.
+    /// </summary>
     public class FieldValidator
     {
-        //Checking for empty strings
         public static bool ValidateString(string value)
         {
             return !string.IsNullOrEmpty(value) && !string.IsNullOrWhiteSpace(value);
@@ -18,7 +20,6 @@ namespace AddressBookConsole.Service.MenuService
             return regex.IsMatch(email);
         }
 
-        // Checking for empty strings and the email regex
         public static bool ValidateEmail(string email)
         {
             return !string.IsNullOrWhiteSpace(email) && IsValidEmail(email);

@@ -2,6 +2,11 @@
 
 namespace AddressBookConsole.Service.MenuService
 {
+    /// <summary>
+    /// Manager responsible for adding contacts.
+    /// </summary>
+    /// <param name="contactService"></param>
+    /// <param name="inputValidator"></param>
     public class ContactRegistrationManager(ContactService.ContactService contactService, InputValidator inputValidator)
     {
         private readonly ContactService.ContactService _contactService = contactService;

@@ -11,6 +11,7 @@ namespace AddressBookMaui.ViewModel
     {
         private readonly ContactService _contactService = contactService;
 
+        
         [ObservableProperty]
         string _firstName = string.Empty;
 
@@ -34,7 +35,7 @@ namespace AddressBookMaui.ViewModel
 
 
         [RelayCommand]
-        private void AddContact()
+        private async Task AddContact()
         {
             ContactModel contact = new()
             {
@@ -47,16 +48,10 @@ namespace AddressBookMaui.ViewModel
                 City = City
             };
 
+
             _contactService.AddContact(contact);
             WeakReferenceMessenger.Default.Send(new UpdatedListMessage("Contacts Updated"));
-
-            FirstName = string.Empty;
-            LastName = string.Empty;
-            Email = string.Empty;
-            PhoneNumber = string.Empty;
-            StreetName = string.Empty;
-            PostalCode = string.Empty;
-            City = string.Empty;
+            await Shell.Current.GoToAsync("..");
         }
     }
 }

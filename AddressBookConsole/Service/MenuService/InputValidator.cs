@@ -1,14 +1,11 @@
 ﻿namespace AddressBookConsole.Service.MenuService
 {
-    // Validates the fields and returns an error message
-    public class InputValidator
+    /// <summary>
+    /// Handles user input with various validation checks.
+    /// </summary>
+    public class InputValidator(ContactService.ContactService contactService)
     {
-        private readonly ContactService.ContactService _contactService;
-
-        public InputValidator(ContactService.ContactService contactService)
-        {
-            _contactService = contactService;
-        }
+        private readonly ContactService.ContactService _contactService = contactService;
 
         public string GetValidInput(string prompt, string fieldName, bool isEmail = false)
         {

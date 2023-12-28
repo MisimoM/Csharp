@@ -1,5 +1,11 @@
 ﻿namespace AddressBookConsole.Service.MenuService
 {
+    /// <summary>
+    /// Manages the options chosen by the user.
+    /// </summary>
+    /// <param name="contactDisplayManager"></param>
+    /// <param name="contactRegistrationManager"></param>
+    /// <param name="contactRemovalManager"></param>
     public class OptionManager(
         ContactDisplayManager contactDisplayManager,
         ContactRegistrationManager contactRegistrationManager,

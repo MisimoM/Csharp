@@ -2,8 +2,10 @@
 using AddressBookConsole.Service.ContactService;
 using AddressBookConsole.Service.MenuService;
 
-ContactLoader contactLoader = new("contactList.json");
-ContactSaver contactSaver = new("contactList.json");
+string filePath = "C:\\Users\\Marko\\Desktop\\Projects\\Education\\C#\\AddressBookConsole\\AddressBookConsole\\ContactList.json";
+
+ContactLoader contactLoader = new(filePath);
+ContactSaver contactSaver = new(filePath);
 
 FileService fileService = new(contactSaver, contactLoader);
 ContactService contactService = new(fileService);

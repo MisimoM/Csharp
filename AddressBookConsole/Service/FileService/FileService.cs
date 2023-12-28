@@ -1,8 +1,15 @@
-﻿using AddressBookConsole.Model;
+﻿using AddressBookConsole.Interface;
+using AddressBookConsole.Model;
 
 namespace AddressBookConsole.Service.FileService
 {
-    public class FileService(ContactSaver contactSaver, ContactLoader contactLoader)
+    /// <summary>
+    /// Service for loading/saving contacts from/to a file.
+    /// </summary>
+    /// <param name="contactSaver"></param>
+    /// <param name="contactLoader"></param>
+
+    public class FileService(ContactSaver contactSaver, ContactLoader contactLoader) : IFileService
     {
         private readonly ContactSaver _contactSaver = contactSaver;
         private readonly ContactLoader _contactLoader = contactLoader;

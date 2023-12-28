@@ -1,6 +1,8 @@
 ﻿namespace AddressBookConsole.Service.MenuService
 {
-    //Show the Main Menu.
+    /// <summary>
+    /// Displays the main menu.
+    /// </summary>
     public class MainMenuDisplay
     {
         public static string GetOption()

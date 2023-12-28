@@ -6,6 +6,7 @@ namespace AddressBookConsole.Service.FileService
     /// <summary>
     /// Loads contacts from a file.
     /// </summary>
+    /// <param name="filePath"></param>
     public class ContactLoader(string filePath)
     {
         private readonly string _filePath = filePath;

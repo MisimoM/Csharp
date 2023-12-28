@@ -1,5 +1,8 @@
 ﻿namespace AddressBookConsole.Service.MenuService
 {
+    /// <summary>
+    /// Manager responsible for removing contacts.
+    /// </summary>
     public class ContactRemovalManager
     {   
         private readonly ContactService.ContactService _contactService;

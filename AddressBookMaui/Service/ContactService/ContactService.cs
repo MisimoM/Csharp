@@ -19,13 +19,22 @@ namespace AddressBookConsole.Service.ContactService
             _fileService.SaveContacts(contacts);
         }
 
-        public bool RemoveContact(string email)
+        public void EditContact()
         {
-            ContactModel contactToRemove = contacts.FirstOrDefault(contact => contact.Email == email)!;
+            _fileService.SaveContacts(contacts);
+        }
 
-            if (contactToRemove != null)
+        public ContactModel GetContactById(Guid contactId)
+        {
+            return contacts.FirstOrDefault(contact => contact.Id == contactId)!;
+        }
+
+        public bool RemoveContact(ContactModel contact)
+        {
+
+            if (contact != null)
             {
-                contacts.Remove(contactToRemove);
+                contacts.Remove(contact);
                 _fileService.SaveContacts(contacts);
                 return true;
             }

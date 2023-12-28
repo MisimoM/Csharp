@@ -4,23 +4,128 @@
              xmlns:viewModel="clr-namespace:AddressBookMaui.ViewModel"
              x:Class="AddressBookMaui.View.DetailsPage"
              x:DataType="{x:Type viewModel:DetailsViewModel}"
-             Title="DetailsPage">
-    
-    <Grid WidthRequest="500"
-          HeightRequest="600">
-        <VerticalStackLayout>
-            <Label Text="{Binding Contact.FirstName}" />
-            <Label Text="{Binding Contact.LastName}" />
-            <Label Text="{Binding Contact.PhoneNumber}" />
-            <Label Text="{Binding Contact.Email}" />
-            <Label Text="{Binding Contact.StreetName}" />
-            <Label Text="{Binding Contact.PostalCode}" />
-            <Label Text="{Binding Contact.City}" />
+             Title="{Binding Contact.FullName}"
+             Shell.BackgroundColor="#749BC2"
+             Shell.TitleColor="White">
 
+    <Grid RowDefinitions="*,50"
+          BackgroundColor="#91C8E4">
+
+        <Grid RowDefinitions="*,*,*,*"
+              Grid.Row="0"
+              WidthRequest="400"
+              Margin="0,10,0,10"
+              Padding="10,10,10,10">
+
+            <Frame Grid.Row="0"
+                   WidthRequest="400"
+                   HeightRequest="100"
+                   HorizontalOptions="Center"
+                   HasShadow="False"
+                   BorderColor="Transparent"
+                   CornerRadius="10"
+                   BackgroundColor="#F6F4EB"
+                   Margin="0,0,0,10">
+
+                <VerticalStackLayout>
+                    <Label Text="Name" FontSize="10"
+                           TextColor="#4682A9"/>
+                    <Label Text="{Binding Contact.FullName}"
+                           HorizontalOptions="Center"
+                           FontSize="18"
+                           TextColor="#4682A9"/>
+                </VerticalStackLayout>
+            
+            </Frame>
+
+            <Frame Grid.Row="1"
+                   WidthRequest="400"
+                   HeightRequest="100"
+                   HorizontalOptions="CenterAndExpand"
+                   HasShadow="False"
+                   BorderColor="Transparent"
+                   CornerRadius="10"
+                   BackgroundColor="#F6F4EB"
+                   Margin="0,0,0,10">
+
+                <VerticalStackLayout>
+                    <Label Text="Phone number" FontSize="10"
+                           TextColor="#4682A9"/>
+                    <Label Text="{Binding Contact.PhoneNumber}"
+                           HorizontalOptions="Center"
+                           FontSize="18"
+                           TextColor="#4682A9"/>     
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame Grid.Row="2"
+                   WidthRequest="400"
+                   HeightRequest="100"
+                   HorizontalOptions="CenterAndExpand"
+                   HasShadow="False"
+                   BorderColor="Transparent"
+                   CornerRadius="10"
+                   BackgroundColor="#F6F4EB"
+                   Margin="0,0,0,10">
+
+                <VerticalStackLayout>
+                    <Label Text="Email" FontSize="10"
+                           TextColor="#4682A9"/>
+                    <Label Text="{Binding Contact.Email}"
+                           HorizontalOptions="Center"
+                           FontSize="18"
+                           TextColor="#4682A9"/>      
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame Grid.Row="3"
+                   WidthRequest="400"
+                   HeightRequest="100"
+                   HorizontalOptions="CenterAndExpand"
+                   HasShadow="False"
+                   BorderColor="Transparent"
+                   CornerRadius="10"
+                   BackgroundColor="#F6F4EB"
+                   Margin="0,0,0,10">
+
+                <VerticalStackLayout>
+                    <Label Text="Address" FontSize="10"
+                           TextColor="#4682A9"/>
+                    <Label Text="{Binding Contact.Address}"
+                           HorizontalOptions="Center"
+                           VerticalTextAlignment="Center"
+                           FontSize="18"
+                           TextColor="#4682A9"/>  
+                </VerticalStackLayout>
+            </Frame>
+
+
+        </Grid>
+
+        <Grid ColumnDefinitions="*,*"
+              Grid.Row="1"
+              WidthRequest="400"
+              HorizontalOptions="CenterAndExpand"
+              Margin="0,0,0,10">
+            
             <Button Text="Edit Contact"
+                    Grid.Column="0"
+                    WidthRequest="175"
+                    HeightRequest="50"
+                    Background="#4682A9"
                     CommandParameter="{Binding Contact}"
                     Command="{Binding GoToEditContactPageCommand}"/>
-        </VerticalStackLayout>
+
+            <Button Text="Remove Contact"
+                    Grid.Column="1"
+                    WidthRequest="175"
+                    HeightRequest="50"
+                    Background="#4682A9"
+                    CommandParameter="{Binding Contact}"
+                    Command="{Binding RemoveContactFromListCommand}"/>
+            
+        </Grid>
+        
     </Grid>
 
 </ContentPage>

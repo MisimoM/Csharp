@@ -4,39 +4,61 @@
              x:Class="AddressBookMaui.View.EditContactPage"
              xmlns:viewModel="clr-namespace:AddressBookMaui.ViewModel"
              x:DataType="{x:Type viewModel:EditContactViewModel}"
-             Title="EditContactPage">
-    
-    <Grid WidthRequest="500"
-          HeightRequest="600">
-        <VerticalStackLayout>
-            <Label Text="Edit Contact"
-                   VerticalOptions="Center" 
-                   HorizontalOptions="Center" />
+             Title="{Binding Contact.FullName}"
+             Shell.BackgroundColor="#749BC2"
+             Shell.TitleColor="White">
 
-            <Label Text="First name"/>
-            <Entry Text="{Binding Contact.FirstName}" />
+    <Grid RowDefinitions="*, 50"
+       BackgroundColor="#91C8E4">
 
-            <Label Text="Last name"/>
-            <Entry Text="{Binding Contact.LastName}" />
+        <VerticalStackLayout Grid.Row="0"
+                          WidthRequest="500">
 
-            <Label Text="Phone number"/>
-            <Entry Text="{Binding Contact.PhoneNumber}" />
+            <Label Text="First name"
+                TextColor="#4682A9"/>
+            <Entry Text="{Binding Contact.FirstName}"
+                    BackgroundColor="#F6F4EB"/>
 
-            <Label Text="Email address"/>
-            <Entry Text="{Binding Contact.Email}" />
+            <Label Text="Last name"
+                    TextColor="#4682A9"/>
+            <Entry Text="{Binding Contact.LastName}"
+                   BackgroundColor="#F6F4EB"/>
 
-            <Label Text="Street name"/>
-            <Entry Text="{Binding Contact.StreetName}" />
+            <Label Text="Phone number"
+                   TextColor="#4682A9"/>
+            <Entry Text="{Binding Contact.PhoneNumber}"
+                   BackgroundColor="#F6F4EB"/>
 
-            <Label Text="Postal code"/>
-            <Entry Text="{Binding Contact.PostalCode}" />
+            <Label Text="Email address"
+                   TextColor="#4682A9"/>
+            <Entry Text="{Binding Contact.Email}"
+                   BackgroundColor="#F6F4EB"/>
 
-            <Label Text="City"/>
-            <Entry Text="{Binding Contact.City}" />
+            <Label Text="Street name"
+                   TextColor="#4682A9"/>
+            <Entry Text="{Binding Contact.StreetName}"
+                    BackgroundColor="#F6F4EB"/>
 
-            <Button Text="Edit Contact"
-                    Command="{Binding SaveEditedContactCommand}"/>
+            <Label Text="Postal code"
+                   TextColor="#4682A9"/>
+            <Entry Text="{Binding Contact.PostalCode}"
+                    BackgroundColor="#F6F4EB"/>
+
+            <Label Text="City"
+                   TextColor="#4682A9"/>
+            <Entry Text="{Binding Contact.City}"
+                   BackgroundColor="#F6F4EB"/>
 
         </VerticalStackLayout>
+
+        <StackLayout HeightRequest="50"
+                  Grid.Row="1"
+                  Margin="0,0,0,10">
+            <Button Text="Confirm Edit"
+                 Command="{Binding SaveEditedContactCommand}"
+                 HeightRequest="50"
+                 WidthRequest="200"
+                 Background="#4682A9"/>
+        </StackLayout>
     </Grid>
 </ContentPage>

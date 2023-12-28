@@ -8,6 +8,5 @@ public partial class EditContactPage : ContentPage
 	{
 		InitializeComponent();
 		BindingContext = viewModel;
-
 	}
 }

@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:AddressBookMaui.View"
     Shell.FlyoutBehavior="Disabled"
     Title="AddressBookMaui">
-    
+
     <ShellContent
         Title="Contact List"
         ContentTemplate="{DataTemplate local:MainPage}"

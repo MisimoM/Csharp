@@ -2,16 +2,26 @@
 using AddressBookMaui.Messages;
 using AddressBookMaui.Model;
 using AddressBookMaui.View;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 
 namespace AddressBookMaui.ViewModel
 {
-    public partial class MainViewModel : BaseViewModel
+    public partial class MainViewModel : ObservableObject
     {
-        public MainViewModel(ContactService contactService) : base(contactService)
+        [ObservableProperty]
+        private ObservableCollection<ContactModel> _contacts = [];
+
+        private readonly ContactService _contactService;
+
+        public MainViewModel(ContactService contactService)
         {
+            _contactService = contactService;
+            
             GetContactsToList();
 
             WeakReferenceMessenger.Default.Register<UpdatedListMessage>(this, (r, m) =>
@@ -21,6 +31,28 @@ namespace AddressBookMaui.ViewModel
                     OnListUpdated(m.Value);
                 });
             });
+        }
+
+        private protected void GetContactsToList()
+        {
+
+            try
+            {
+                var contacts = _contactService.GetContacts();
+                    Contacts.Clear();
+
+                foreach (var contact in contacts)
+                    Contacts.Add(contact);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Unable to get contacts: {ex.Message}");
+            }
+        }
+
+        private protected void OnListUpdated(string message)
+        {
+            GetContactsToList();
         }
 
         [RelayCommand]
