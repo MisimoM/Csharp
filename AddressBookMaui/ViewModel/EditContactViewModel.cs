@@ -7,6 +7,9 @@ using CommunityToolkit.Mvvm.Messaging;
 
 namespace AddressBookMaui.ViewModel
 {
+    /// <summary>
+    /// Responsible for editing contacts.
+    /// </summary>
     [QueryProperty(nameof(Contact), "Contact")]
     public partial class EditContactViewModel : ObservableObject
     {
@@ -42,6 +45,13 @@ namespace AddressBookMaui.ViewModel
         [ObservableProperty]
         string _city = string.Empty;
 
+        /// <summary>
+        /// Edits the contact and saves it to the list.
+        /// Sends a message to the MainViewModel to update the list.
+        /// Navigates back to the HomePage.
+        /// </summary>
+        /// <param name="Contact"></param>
+        /// <returns></returns>
         [RelayCommand]
         private async Task SaveEditedContact(ContactModel Contact)
         {

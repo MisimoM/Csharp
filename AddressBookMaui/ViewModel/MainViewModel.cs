@@ -24,10 +24,10 @@ namespace AddressBookMaui.ViewModel
             
             GetContactsToList();
 
+            // The message reciever to update the contact list.
             WeakReferenceMessenger.Default.Register<UpdatedListMessage>(this, (r, m) =>
             {
-                OnListUpdated(m.Value);
-                Debug.WriteLine("Received UpdatedListMessage");
+                UpdateList(m.Value);
             });
         }
 
@@ -48,11 +48,20 @@ namespace AddressBookMaui.ViewModel
             }
         }
 
-        private void OnListUpdated(string message)
+        /// <summary>
+        /// When message is recieved the list gets updated.
+        /// </summary>
+        /// <param name="message"></param>
+        private void UpdateList(string message)
         {
             GetContactsToList();
         }
 
+        /// <summary>
+        /// // Navigates to the DetailsPage with data of the tapped contact.
+        /// </summary>
+        /// <param name="contact"></param>
+        /// <returns></returns>
         [RelayCommand]
         private async Task GoToContactDetails(ContactModel contact)
         {
@@ -66,6 +75,10 @@ namespace AddressBookMaui.ViewModel
                 });
         }
 
+        /// <summary>
+        /// // Navigates to the AddContactPage.
+        /// </summary>
+        /// <returns></returns>
         [RelayCommand]
         private async Task GoToAddContactPage()
         {

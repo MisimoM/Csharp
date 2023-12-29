@@ -8,6 +8,10 @@ using CommunityToolkit.Mvvm.Messaging;
 
 namespace AddressBookMaui.ViewModel
 {
+    /// <summary>
+    /// Displays the contact details
+    /// </summary>
+    /// 
     [QueryProperty(nameof(Contact), "Contact")]
     public partial class DetailsViewModel : ObservableObject
     {
@@ -21,6 +25,7 @@ namespace AddressBookMaui.ViewModel
         [ObservableProperty]
         ContactModel _contact;
 
+        // Navigates to EditContactPage to edit the contact.
         [RelayCommand]
         private async Task GoToEditContactPage(ContactModel contact)
         {
@@ -32,6 +37,13 @@ namespace AddressBookMaui.ViewModel
                 });
         }
 
+        /// <summary>
+        /// Removes the contact from the list.
+        /// Send a message to the MainViewModel to update the list.
+        /// Navigates back to the MainPage.
+        /// </summary>
+        /// <param name="contact"></param>
+        /// <returns></returns>
         [RelayCommand]
         private async Task RemoveContactFromList(ContactModel contact)
         {

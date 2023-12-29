@@ -35,7 +35,6 @@ namespace AddressBookConsole.Test
         /// Adds a new contact and saves it to the list.
         /// Checks if the new contact is in the list.
         /// </summary>
-
         [Fact]
         public void AddContact_Should_AddContact()
         {

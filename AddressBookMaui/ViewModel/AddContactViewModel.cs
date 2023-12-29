@@ -7,6 +7,10 @@ using CommunityToolkit.Mvvm.Messaging;
 
 namespace AddressBookMaui.ViewModel
 {
+    /// <summary>
+    /// Resposible for adding new contacts.
+    /// </summary>
+    /// <param name="contactService"></param>
     public partial class AddContactViewModel(ContactService contactService) : ObservableObject
     {
         private readonly ContactService _contactService = contactService;
@@ -33,7 +37,12 @@ namespace AddressBookMaui.ViewModel
         [ObservableProperty]
         string _city = string.Empty;
 
-
+        /// <summary>
+        /// Creates a new contact and adds it to the list.
+        /// Sends a message to the MainViewModel to update the list.
+        /// Navigates to the Main Page.
+        /// </summary>
+        /// <returns></returns>
         [RelayCommand]
         private async Task AddContact()
         {

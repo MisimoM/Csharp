@@ -1,5 +1,8 @@
 ﻿namespace AddressBookMaui.Model
 {
+    /// <summary>
+    /// Model for the contact.
+    /// </summary>
     public class ContactModel
     {
         public Guid Id { get; set; } = Guid.NewGuid();
