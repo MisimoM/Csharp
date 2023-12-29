@@ -2,6 +2,11 @@
 
 namespace AddressBookMaui.Service.FileService
 {
+    /// <summary>
+    /// Service for loading/saving contacts from/to a file.
+    /// </summary>
+    /// <param name="contactSaver"></param>
+    /// <param name="contactLoader"></param>
     public class FileService(ContactSaver contactSaver, ContactLoader contactLoader)
     {
         private readonly ContactSaver _contactSaver = contactSaver;

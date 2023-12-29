@@ -3,7 +3,10 @@ using Newtonsoft.Json;
 
 namespace AddressBookMaui.Service.FileService
 {
-    // Saves contacts to a file.
+    /// <summary>
+    /// Saves contacts to a file.
+    /// </summary>
+    /// <param name="filePath"></param>
     public class ContactSaver(string filePath)
     {
         private readonly string _filePath = filePath;

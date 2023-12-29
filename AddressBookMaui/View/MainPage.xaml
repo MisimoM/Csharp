@@ -16,7 +16,7 @@
                         Margin="0,5,0,0">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:ContactModel">
-                    <Frame HeightRequest="60"
+                    <Frame HeightRequest="64"
                            WidthRequest="400"
                            HorizontalOptions="CenterAndExpand"
                            HasShadow="False"
@@ -41,7 +41,7 @@
                      Grid.Row="1"
                      Margin="0,0,0,10">
             <Button Text="Add a new contact"
-                    Clicked="GoToAddContactPage"
+                    Command="{Binding GoToAddContactPageCommand}"
                     HeightRequest="50"
                     WidthRequest="200"
                     Background="#4682A9"/>

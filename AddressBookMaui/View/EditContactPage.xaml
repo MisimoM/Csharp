@@ -55,10 +55,11 @@
                   Grid.Row="1"
                   Margin="0,0,0,10">
             <Button Text="Confirm Edit"
-                 Command="{Binding SaveEditedContactCommand}"
-                 HeightRequest="50"
-                 WidthRequest="200"
-                 Background="#4682A9"/>
+                    CommandParameter="{Binding Contact}"
+                    Command="{Binding SaveEditedContactCommand}"
+                    HeightRequest="50"
+                    WidthRequest="200"
+                    Background="#4682A9"/>
         </StackLayout>
     </Grid>
 </ContentPage>

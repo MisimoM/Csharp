@@ -3,6 +3,10 @@ using AddressBookMaui.Service.FileService;
 
 namespace AddressBookConsole.Service.ContactService
 {
+    /// <summary>
+    /// Service for managing contacts.
+    /// </summary>
+    /// <param name="fileService"></param>
     public class ContactService(FileService fileService)
     {
         private readonly List<ContactModel> contacts = fileService.LoadContacts();
@@ -19,14 +23,11 @@ namespace AddressBookConsole.Service.ContactService
             _fileService.SaveContacts(contacts);
         }
 
-        public void EditContact()
+        public void EditContact(ContactModel contact, ContactModel newContact)
         {
+            RemoveContact(contact);
+            AddContact(newContact);
             _fileService.SaveContacts(contacts);
-        }
-
-        public ContactModel GetContactById(Guid contactId)
-        {
-            return contacts.FirstOrDefault(contact => contact.Id == contactId)!;
         }
 
         public bool RemoveContact(ContactModel contact)
@@ -40,11 +41,6 @@ namespace AddressBookConsole.Service.ContactService
             }
 
             return false;
-        }
-
-        public bool EmailExists(string email)
-        {
-            return contacts.Any(contact => contact.Email.Equals(email, StringComparison.CurrentCultureIgnoreCase));
         }
     }
 }

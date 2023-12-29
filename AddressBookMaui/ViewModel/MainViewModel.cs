@@ -26,22 +26,20 @@ namespace AddressBookMaui.ViewModel
 
             WeakReferenceMessenger.Default.Register<UpdatedListMessage>(this, (r, m) =>
             {
-                MainThread.BeginInvokeOnMainThread(() =>
-                {
-                    OnListUpdated(m.Value);
-                });
+                OnListUpdated(m.Value);
+                Debug.WriteLine("Received UpdatedListMessage");
             });
         }
 
-        private protected void GetContactsToList()
+        private void GetContactsToList()
         {
-
             try
             {
                 var contacts = _contactService.GetContacts();
-                    Contacts.Clear();
+                
+                Contacts.Clear();
 
-                foreach (var contact in contacts)
+                foreach (ContactModel contact in contacts)
                     Contacts.Add(contact);
             }
             catch (Exception ex)
@@ -50,7 +48,7 @@ namespace AddressBookMaui.ViewModel
             }
         }
 
-        private protected void OnListUpdated(string message)
+        private void OnListUpdated(string message)
         {
             GetContactsToList();
         }
@@ -61,11 +59,17 @@ namespace AddressBookMaui.ViewModel
             if (contact is null)
                 return;
 
-            await Shell.Current.GoToAsync($"{nameof(DetailsPage)}", true,
+            await Shell.Current.GoToAsync($"{nameof(DetailsPage)}", false,
                 new Dictionary<string, object>
                 {
                     {"Contact", contact }
                 });
+        }
+
+        [RelayCommand]
+        private async Task GoToAddContactPage()
+        {
+            await Shell.Current.GoToAsync(nameof(AddContactPage));
         }
     }
 }
